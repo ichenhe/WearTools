@@ -1,6 +1,7 @@
 # 概述
 
-WearTools 二次封装了[Ticear提供的sdk](https://bintray.com/ticwear/maven/mobvoi-api)，同时内部包含了`Google Play services 10.2.0`，以便实现 Android Wear、Android Wear China、Ticwear 的全兼容。下载量超10万的[腕间图库](http://wg.chenhe.cc/)已经使用老版本的 WearTools 库一年。（弱弱地求个Star★(*￣3￣)╭）
+WearTools 二次封装了[Ticear提供的sdk](https://bintray.com/ticwear/maven/mobvoi-api)，同时内部包含了`Google Play services 10.2.0`，以便实现 Android Wear、Android Wear China、Ticwear 的全兼容。下载量超10万的[腕间图库](http://wg.chenhe.cc/)已经使用老版本的 WearTools 库一年。
+弱弱地求个Star★(*￣3￣)╭ 
 
 使用 WearTools ，可以大幅简化手表与手机的通讯代码，你只需关注业务逻辑而不必将大量精力放在传输的维护上。本库提供了不同系统不同设备下统一的API，手表与手机可以互为发送方与接收方并且不需要编写不同的代码。
 
@@ -509,3 +510,9 @@ public class MainActivity extends Activity {
 }
 ```
 
+
+
+# 最后
+
+有问题欢迎Issue，欢迎 Pull request.
+再求个Star★(*￣3￣)╭ 
