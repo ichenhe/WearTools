@@ -1,6 +1,7 @@
 # 概述
 
 WearTools 二次封装了[Ticear提供的sdk](https://bintray.com/ticwear/maven/mobvoi-api)，同时内部包含了`Google Play services 10.2.0`，以便实现 Android Wear、Android Wear China、Ticwear 的全兼容。下载量超10万的[腕间图库](http://wg.chenhe.cc/)已经使用老版本的 WearTools 库一年。
+
 弱弱地求个Star★(*￣3￣)╭ 
 
 使用 WearTools ，可以大幅简化手表与手机的通讯代码，你只需关注业务逻辑而不必将大量精力放在传输的维护上。本库提供了不同系统不同设备下统一的API，手表与手机可以互为发送方与接收方并且不需要编写不同的代码。
@@ -378,7 +379,8 @@ protected void onMessageReceived(String nodeId, String path, byte[] data, byte[]
 **注意：** `bothwayId`必须原封不动地传给response函数，如果经过修改，那么发送方不会收到回调。虽然`path`可以不同，但按照规范也考虑到后续版本兼容性，请务必也原封不动地传给response().
 
 以 DataMap形式响应请求是大致相同的，不过需要调用`WTBothway.responseDataItem()`函数来实现。
- **注意：** 响应的DataMap务必设置`putDataMapRequest.setUrgent();`，否则极容易导致超时。
+
+**注意：** 响应的DataMap务必设置`putDataMapRequest.setUrgent();`，否则极容易导致超时。
 
 
 
