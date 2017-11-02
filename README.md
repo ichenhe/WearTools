@@ -1,10 +1,10 @@
 # 概述
 
-WearTools 二次封装了[Ticear提供的sdk](https://bintray.com/ticwear/maven/mobvoi-api)，同时内部包含了`Google Play services 10.2.0`，以便实现 Android Wear、Android Wear China、Ticwear 的全兼容。下载量超10万的[腕间图库](http://wg.chenhe.cc/)已经使用老版本的 WearTools 库一年。
+WearTools 二次封装了[Ticear提供的sdk](https://bintray.com/ticwear/maven/mobvoi-api)，同时内部包含了`Google Play services 10.2.0`，以便实现 Android Wear、Android Wear China、Ticwear 的全兼容。下载量超10万的[腕间图库](http://wg.chenhe.cc/)已经使用老版本的 WearTools 库一年。（弱弱地求个Star★(*￣3￣)╭）
 
 使用 WearTools ，可以大幅简化手表与手机的通讯代码，你只需关注业务逻辑而不必将大量精力放在传输的维护上。本库提供了不同系统不同设备下统一的API，手表与手机可以互为发送方与接收方并且不需要编写不同的代码。
 
-**添加依赖**：
+**添加依赖** ：
 `compile 'cc.chenhe:wear-tools:1.0.0'`
 
 
@@ -51,9 +51,9 @@ public class App extends Application {
 ```
 
 **注意：** 不建议在手机终端使用自动适配系统。因为此模式下，sdk会判断当前手机设备是否安装了`Ticwear`App，如果安装了则认为是Ticwear模式，而不是依据实际连接情况进行判断。假设这样一种情况：用户同时安装了`Ticwear`与`Android Wear`，但当前连接的是 Android Wear 手表。那么sdk就会判断错误，导致相关功能不可用。
-**最佳实践**是根据目标用户，手动指定系统或者引导用户自行选择。
+**最佳实践** 是根据目标用户，手动指定系统或者引导用户自行选择。
 
-**注意：**ApiClient 将由 WearTools 统一管理，你不应当尝试手动创建、连接或释放。
+**注意：** ApiClient 将由 WearTools 统一管理，你不应当尝试手动创建、连接或释放。
 
 
 
@@ -85,7 +85,7 @@ WTSender.sendMessage(context, path, content, new WTSender.SendMsgCallback() {
 });
 ```
 
-**注意：**回调中的成功指的是成功将请求发送给 Google Play Service 或 Mobvoi API ，这不代表对端设备一定可以收到数据。
+**注意：** 回调中的成功指的是成功将请求发送给 Google Play Service 或 Mobvoi API ，这不代表对端设备一定可以收到数据。
 
 
 
@@ -117,7 +117,7 @@ WTSender.sendData(context, putDataMapRequest, new WTSender.SendDataCallback() {
 });
 ```
 
-**注意：**与发送 Message 一样，回调中的成功指的是成功将请求发送给 Google Play Service 或 Mobvoi API ，这不代表对端设备一定可以收到数据。
+**注意：** 与发送 Message 一样，回调中的成功指的是成功将请求发送给 Google Play Service 或 Mobvoi API ，这不代表对端设备一定可以收到数据。
 
 
 
@@ -180,7 +180,7 @@ try {
 }
 ```
 
-**注意：**虽然理论上Asset是不限制大小的，但是受限于蓝牙带宽，发送大文件将耗费很长的时间，在这过程中还可能影响其他数据的传输，因此请慎重传输超大文件。
+**注意：** 虽然理论上Asset是不限制大小的，但是受限于蓝牙带宽，发送大文件将耗费很长的时间，在这过程中还可能影响其他数据的传输，因此请慎重传输超大文件。
 
 # 通过监听器接收数据
 
@@ -294,7 +294,7 @@ public class ListenerService extends WTListenerService {
 值得注意的是，必须指定`<intent-filter>`，里面必须指定`action`与`data`，否则服务将不会被启动，当中的函数也不会被执行。
 有关`<intent-filter>`的详细资料，请参加[谷歌文档](https://developer.android.com/training/wearables/data-layer/events.html) 。
 
-**注意：所有的**`com.google.android.gms.wearable`**前缀需要替换为**`com.mobvoi.android.wearable`
+**注意：所有的** `com.google.android.gms.wearable` **前缀需要替换为** `com.mobvoi.android.wearable`
 
 下面是一个注册了上述几个发送监听的Demo:
 
@@ -319,7 +319,7 @@ public class ListenerService extends WTListenerService {
 </service>
 ```
 
-**注意：**曾经的`BIND_LISTENER` action 已经不再支持，注册`BIND_LISTENER`不会收到任何回调。
+**注意：** 曾经的`BIND_LISTENER` action 已经不再支持，注册`BIND_LISTENER`不会收到任何回调。
 
 
 
@@ -374,10 +374,10 @@ protected void onMessageReceived(String nodeId, String path, byte[] data, byte[]
 }
 ```
 
-**注意：**`bothwayId`必须原封不动地传给response函数，如果经过修改，那么发送方不会收到回调。虽然`path`可以不同，但按照规范也考虑到后续版本兼容性，请务必也原封不动地传给response().
+**注意：** `bothwayId`必须原封不动地传给response函数，如果经过修改，那么发送方不会收到回调。虽然`path`可以不同，但按照规范也考虑到后续版本兼容性，请务必也原封不动地传给response().
 
 以 DataMap形式响应请求是大致相同的，不过需要调用`WTBothway.responseDataItem()`函数来实现。
-**注意：**响应的DataMap务必设置`putDataMapRequest.setUrgent();`，否则极容易导致超时。
+**注意：** 响应的DataMap务必设置`putDataMapRequest.setUrgent();`，否则极容易导致超时。
 
 
 
