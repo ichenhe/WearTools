@@ -50,7 +50,7 @@ public class App extends Application {
 ...
 ```
 
-** 注意： ** 不建议在手机终端使用自动适配系统。因为此模式下，sdk会判断当前手机设备是否安装了`Ticwear`App，如果安装了则认为是Ticwear模式，而不是依据实际连接情况进行判断。假设这样一种情况：用户同时安装了`Ticwear`与`Android Wear`，但当前连接的是 Android Wear 手表。那么sdk就会判断错误，导致相关功能不可用。
+**注意：** 不建议在手机终端使用自动适配系统。因为此模式下，sdk会判断当前手机设备是否安装了`Ticwear`App，如果安装了则认为是Ticwear模式，而不是依据实际连接情况进行判断。假设这样一种情况：用户同时安装了`Ticwear`与`Android Wear`，但当前连接的是 Android Wear 手表。那么sdk就会判断错误，导致相关功能不可用。
 **最佳实践**是根据目标用户，手动指定系统或者引导用户自行选择。
 
 **注意：**ApiClient 将由 WearTools 统一管理，你不应当尝试手动创建、连接或释放。
