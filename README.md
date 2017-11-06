@@ -6,9 +6,6 @@ WearTools 二次封装了[Ticear提供的sdk](https://bintray.com/ticwear/maven/
 
 使用 WearTools ，可以大幅简化手表与手机的通讯代码，你只需关注业务逻辑而不必将大量精力放在传输的维护上。本库提供了不同系统不同设备下统一的API，手表与手机可以互为发送方与接收方并且不需要编写不同的代码。
 
-**添加依赖** ：
-`compile 'cc.chenhe:wear-tools:1.0.0'`
-
 
 
 # 特性
@@ -18,6 +15,36 @@ WearTools 二次封装了[Ticear提供的sdk](https://bintray.com/ticwear/maven/
 - 回调与调用在同一线程。
 - 支持 Request/Response 模型。
 - 支持超时返回。
+
+
+
+
+# 依赖与冲突处理
+
+1. 添加仓库地址。
+   由于本库依赖了Ticwear的sdk，但其并没有传至Jcenter，所以需要在 Project 的 build.gradle 的 allprojects-repositories 节点下添加仓库地址：
+
+   ```
+   maven {
+   	url 'https://dl.bintray.com/ticwear/maven'
+   }
+   ```
+
+2. 添加依赖。
+   在 Module 的 build.gradle 中添加 WearTools 的依赖：
+
+   ```
+   compile ('cc.chenhe:wear-tools:1.0.0'){
+   	exclude group: 'com.android.support'
+   }
+   ```
+
+   如上，为了避免发生`android.support.VERSION`冲突，需要将部分库排除。
+
+3. 删除多余依赖。
+   你不应该再添加`com.ticwear:mobvoi-api`或`com.google.android.gms:play-services-wearable`的依赖项，如果有请删除，因为本项目内部已经依赖了这2个库。
+   **注意：** 如果需要使用其他 Google play service，请统一使用10.2.0版本，否则可能出现问题。
+
 
 
 
@@ -188,7 +215,7 @@ try {
 
 WearTools 也提供了各式各样的监听器，你可以在任何地方注册它们。回调函数将运行在与监听器实例化的同一线程，因此，你可以方便地在回调中更新UI.
 
-**警告！！ 不论何种监听器，如果要在 Activity 中实例化，请务必特别处理以免造成内存泄漏。详情请参加下面的内存泄漏章节**
+**警告！！ 不论何种监听器，如果要在 Activity 中实例化，请务必特别处理以免造成内存泄漏。详情请参见下面的内存泄漏章节**
 
 
 
@@ -294,7 +321,7 @@ public class ListenerService extends WTListenerService {
 
 之后记得在manifest里注册Service.
 值得注意的是，必须指定`<intent-filter>`，里面必须指定`action`与`data`，否则服务将不会被启动，当中的函数也不会被执行。
-有关`<intent-filter>`的详细资料，请参加[谷歌文档](https://developer.android.com/training/wearables/data-layer/events.html) 。
+有关`<intent-filter>`的详细资料，请参见[谷歌文档](https://developer.android.com/training/wearables/data-layer/events.html) 。
 
 **注意：所有的** `com.google.android.gms.wearable` **前缀需要替换为** `com.mobvoi.android.wearable`
 
