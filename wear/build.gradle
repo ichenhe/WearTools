@@ -16,12 +16,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.google.android.support:wearable:2.0.5'
-    compile 'com.google.android.gms:play-services-wearable:11.0.4'
-    provided 'com.google.android.wearable:wearable:2.0.5'
+    compile 'com.google.android.support:wearable:2.1.0'
+//    compile 'com.google.android.gms:play-services-wearable:11.0.4'
+    provided 'com.google.android.wearable:wearable:2.1.0'
     compile project(':weartoolslib')
 }

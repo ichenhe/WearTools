@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 26
@@ -7,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion 18
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.0.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -19,6 +20,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -27,9 +31,19 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:26.0.0'
+    implementation "com.android.support:appcompat-v7:$supportlib_version"
     //To be compatible with Chinese GMS version, must use 10.2.0 here.
     //为了兼容android wear中国版，这里必须使用10.2.0版本的GMS。
-    compile 'com.google.android.gms:play-services-wearable:10.2.0'
-    compile 'com.ticwear:mobvoi-api:1.0.5'
+    //noinspection GradleDependency
+    api 'com.google.android.gms:play-services-wearable:10.2.0'
+    api 'com.ticwear:mobvoi-api:1.0.8'
+}
+
+publish {
+    userOrg = 'liangchenhe55'
+    groupId = 'cc.chenhe'
+    artifactId = 'wear-tools'
+    publishVersion = '1.0.1'
+    desc = ''
+    website = 'https://github.com/liangchenhe55/WearTools'
 }
