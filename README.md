@@ -4,7 +4,7 @@
 
 # 概述
 
-WearTools 二次封装了[Ticear提供的sdk](https://bintray.com/ticwear/maven/mobvoi-api)，同时内部包含了`Google Play services 10.2.0`，以便实现 Android Wear、Android Wear China、Ticwear 的全兼容。下载量超10万的[腕间图库](http://wg.chenhe.cc/)已经使用老版本的 WearTools 库一年。
+WearTools 二次封装了[Ticear提供的sdk](https://bintray.com/ticwear/maven/mobvoi-api)，同时内部包含了`Google Play services 10.2.0`，以便实现 Android Wear、Android Wear China、Ticwear 的全兼容。下载量超10万的[腕间图库](http://wg.chenhe.cc/)已经使用 WearTools 库一年。
 
 弱弱地求个Star★(*￣3￣)╭ 
 
@@ -12,7 +12,7 @@ WearTools 二次封装了[Ticear提供的sdk](https://bintray.com/ticwear/maven/
 
 # 特性
 
-- 兼容多系统。（Andorid Wear、AW China、Ticwear）
+- 兼容多系统。（WearOS、WOS China、Ticwear）
 - 提供全局静态函数便于发送。
 - 回调与调用在同一线程。
 - 支持 Request/Response 模型。
@@ -25,7 +25,7 @@ WearTools 二次封装了[Ticear提供的sdk](https://bintray.com/ticwear/maven/
    在 Module 的 build.gradle 中添加 WearTools 的依赖：
 
    ```gradle
-   implementation ('cc.chenhe:wear-tools:1.0.1'){
+   implementation ('cc.chenhe:wear-tools:1.0.2'){
    	exclude group: 'com.android.support'
    }
    ```
@@ -57,7 +57,7 @@ WearTools can dramatically simplify the communication code between wear and mobi
 
 # Feature
 
-- Compatible multisystem. (Andorid Wear/AW China/Ticwear)
+- Compatible multisystem. (WearOS/WOS China/Ticwear)
 - Global static functions are provided to facilitate sending.
 - Callbacks are in the same thread as the call.
 - Support Request/Response model.
@@ -70,7 +70,7 @@ WearTools can dramatically simplify the communication code between wear and mobi
    Add dependence in Module's build.gradle:
 
    ```gradle
-   implementation ('cc.chenhe:wear-tools:1.0.1'){
+   implementation ('cc.chenhe:wear-tools:1.0.2'){
    	exclude group: 'com.android.support'
    }
    ```
