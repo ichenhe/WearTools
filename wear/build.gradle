@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "cc.chenhe.lib.weartools.demo"
         minSdkVersion 21
@@ -22,9 +22,9 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.google.android.support:wearable:2.1.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.google.android.support:wearable:2.1.0'
 //    compile 'com.google.android.gms:play-services-wearable:11.0.4'
-    provided 'com.google.android.wearable:wearable:2.1.0'
-    compile project(':weartoolslib')
+    compileOnly 'com.google.android.wearable:wearable:2.1.0'
+    implementation project(':weartoolslib')
 }

@@ -15,6 +15,7 @@ import com.mobvoi.android.wearable.PutDataMapRequest;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Random;
 
 import cc.chenhe.lib.weartools.WTBothway;
 import cc.chenhe.lib.weartools.WTSender;
@@ -168,6 +169,7 @@ public class MainActivity extends WTAppCompatActivity implements View.OnClickLis
             Asset asset = Asset.createFromBytes(buffer);
             PutDataMapRequest putDataMapRequest = WTSender.getPutDataMapRequest("/image");
             putDataMapRequest.setUrgent();
+            putDataMapRequest.getDataMap().putInt("a", new Random(System.currentTimeMillis()).nextInt());
             putDataMapRequest.getDataMap().putAsset("image", asset);
             Log.i(TAG, "Sending image data...");
             WTSender.sendData(context, putDataMapRequest, new WTSender.SendDataCallback() {

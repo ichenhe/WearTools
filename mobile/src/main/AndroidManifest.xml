@@ -20,13 +20,25 @@
             </intent-filter>
         </activity>
 
-        <service android:name="cc.chenhe.lib.weartools.demo.ListenerService">
+        <service android:name="com.mobvoi.android.wearable.WearableListenerServiceGoogleImpl">
             <intent-filter>
-                <action android:name="com.mobvoi.android.wearable.MESSAGE_RECEIVED" />
+                <action android:name="com.google.android.gms.wearable.MESSAGE_RECEIVED" />
+                <action android:name="com.google.android.gms.wearable.DATA_CHANGED" />
+
                 <data
                     android:host="*"
                     android:pathPrefix="/image"
                     android:scheme="wear" />
+            </intent-filter>
+        </service>
+
+        <service android:name="cc.chenhe.lib.weartools.demo.ListenerService">
+            <intent-filter>
+                <action android:name="com.mobvoi.android.wearable.BIND_LISTENER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.mobvoi.android.wearable.BIND_LISTENER" />
+                <action android:name="com.mobvoi.android.wearable.MESSAGE_RECEIVED" />
             </intent-filter>
         </service>
     </application>

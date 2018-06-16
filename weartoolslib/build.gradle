@@ -3,13 +3,13 @@ apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         minSdkVersion 18
         targetSdkVersion 26
-        versionCode 2
-        versionName "1.0.1"
+        versionCode 3
+        versionName "1.0.2"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -26,24 +26,20 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    testCompile 'junit:junit:4.12'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "com.android.support:appcompat-v7:$supportlib_version"
-    //To be compatible with Chinese GMS version, must use 10.2.0 here.
-    //为了兼容android wear中国版，这里必须使用10.2.0版本的GMS。
-    //noinspection GradleDependency
+    // To be compatible with Chinese GMS version, must use 10.2.0 here.
+    // 为了兼容 wear os 中国版，这里必须使用10.2.0版本的GMS。
+    // noinspection GradleDependency
     api 'com.google.android.gms:play-services-wearable:10.2.0'
-    api 'com.ticwear:mobvoi-api:1.0.8'
+    api 'com.ticwear:mobvoi-api:1.1.1'
 }
 
 publish {
     userOrg = 'liangchenhe55'
     groupId = 'cc.chenhe'
     artifactId = 'wear-tools'
-    publishVersion = '1.0.1'
+    publishVersion = '1.0.2'
     desc = ''
     website = 'https://github.com/liangchenhe55/WearTools'
 }

@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "cc.chenhe.lib.weartools.demo"
         minSdkVersion 18
@@ -23,15 +23,11 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     wearApp project(':wear')
 //    compile 'com.google.android.gms:play-services-wearable:11.0.4'
-    compile "com.android.support:appcompat-v7:$supportlib_version"
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
-    compile project(':weartoolslib')
-    compile "com.android.support:design:$supportlib_version"
+    implementation "com.android.support:appcompat-v7:$supportlib_version"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation project(':weartoolslib')
+    implementation "com.android.support:design:$supportlib_version"
 }
