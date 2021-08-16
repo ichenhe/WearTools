@@ -1,5 +1,8 @@
 [ ![Download](https://api.bintray.com/packages/liangchenhe55/maven/wear-tools/images/download.svg) ](https://bintray.com/liangchenhe55/maven/wear-tools/_latestVersion)
 
+> ⚠️ This project is deprecated, pls move to [wear-msger](https://github.com/ichenhe/wear-msger)\
+> ⚠️ 此项目已弃用，请移步 [wear-msger](https://github.com/ichenhe/wear-msger)
+
 **[English](#english)**
 
 # 概述
